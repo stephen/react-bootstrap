@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import domUtils from './utils/domUtils';
 import EventListener from './utils/EventListener';
 
@@ -42,7 +43,7 @@ export default class RootCloseWrapper extends React.Component {
 
   handleDocumentClick(e) {
     // If the click originated from within this component, don't do anything.
-    if (isNodeInRoot(e.target, React.findDOMNode(this))) {
+    if (isNodeInRoot(e.target, ReactDOM.findDOMNode(this))) {
       return;
     }
 

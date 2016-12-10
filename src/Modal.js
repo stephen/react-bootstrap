@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import BootstrapMixin from './BootstrapMixin';
 import FadeMixin from './FadeMixin';
@@ -115,15 +116,15 @@ const Modal = React.createClass({
     // IOS only allows click events to be delegated to the document on elements
     // it considers 'clickable' - anchors, buttons, etc. We fake a click handler on the
     // DOM nodes themselves. Remove if handled by React: https://github.com/facebook/react/issues/1169
-    React.findDOMNode(this.refs.modal).onclick = function () {};
-    React.findDOMNode(this.refs.backdrop).onclick = function () {};
+    ReactDOM.findDOMNode(this.refs.modal).onclick = function () {};
+    ReactDOM.findDOMNode(this.refs.backdrop).onclick = function () {};
   },
 
   componentDidMount() {
     this._onDocumentKeyupListener =
       EventListener.listen(domUtils.ownerDocument(this), 'keyup', this.handleDocumentKeyUp);
 
-    let container = (this.props.container && React.findDOMNode(this.props.container)) ||
+    let container = (this.props.container && ReactDOM.findDOMNode(this.props.container)) ||
           domUtils.ownerDocument(this).body;
     container.className += container.className.length ? ' modal-open' : 'modal-open';
 
@@ -140,7 +141,7 @@ const Modal = React.createClass({
 
   componentWillUnmount() {
     this._onDocumentKeyupListener.remove();
-    let container = (this.props.container && React.findDOMNode(this.props.container)) ||
+    let container = (this.props.container && ReactDOM.findDOMNode(this.props.container)) ||
           domUtils.ownerDocument(this).body;
     container.className = container.className.replace(/ ?modal-open/, '');
   },

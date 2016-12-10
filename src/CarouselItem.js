@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import TransitionEvents from './utils/TransitionEvents';
 
@@ -42,7 +43,7 @@ const CarouselItem = React.createClass({
   componentDidUpdate(prevProps) {
     if (!this.props.active && prevProps.active) {
       TransitionEvents.addEndEventListener(
-        React.findDOMNode(this),
+        ReactDOM.findDOMNode(this),
         this.handleAnimateOutEnd
       );
     }

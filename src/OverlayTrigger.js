@@ -1,5 +1,7 @@
 import React, { cloneElement } from 'react';
 
+import ReactDOM from 'react-dom';
+
 import OverlayMixin from './OverlayMixin';
 import RootCloseWrapper from './RootCloseWrapper';
 
@@ -297,7 +299,7 @@ const OverlayTrigger = React.createClass({
   },
 
   getPosition() {
-    const node = React.findDOMNode(this);
+    const node = ReactDOM.findDOMNode(this);
     const container = this.getContainerDOMNode();
 
     const offset = container.tagName === 'BODY' ?

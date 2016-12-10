@@ -1,4 +1,5 @@
 import React, { cloneElement } from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
 import BootstrapMixin from './BootstrapMixin';
@@ -44,7 +45,7 @@ const Panel = React.createClass({
   },
 
   getCollapsibleDimensionValue() {
-    return React.findDOMNode(this.refs.panel).scrollHeight;
+    return ReactDOM.findDOMNode(this.refs.panel).scrollHeight;
   },
 
   getCollapsibleDOMNode() {
@@ -52,7 +53,7 @@ const Panel = React.createClass({
       return null;
     }
 
-    return React.findDOMNode(this.refs.panel);
+    return ReactDOM.findDOMNode(this.refs.panel);
   },
 
   render() {

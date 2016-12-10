@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import SplitButton from '../src/SplitButton';
 import MenuItem from '../src/MenuItem';
@@ -8,7 +9,7 @@ describe('SplitButton', function () {
   let instance;
   afterEach(function() {
     if (instance && ReactTestUtils.isCompositeComponent(instance) && instance.isMounted()) {
-      React.unmountComponentAtNode(instance.getDOMNode());
+      ReactDOM.unmountComponentAtNode(instance.getDOMNode());
     }
   });
 

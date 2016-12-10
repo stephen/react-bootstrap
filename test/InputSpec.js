@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import Input from '../src/Input';
 import Button from '../src/Button';
@@ -89,7 +90,7 @@ describe('Input', function () {
       <Input groupClassName="group" bsStyle="error" />
     );
 
-    let node = React.findDOMNode(instance);
+    let node = ReactDOM.findDOMNode(instance);
     assert.include(node.className, 'form-group');
     assert.include(node.className, 'group');
     assert.include(node.className, 'has-error');
@@ -224,7 +225,7 @@ describe('Input', function () {
       <Input type="file" wrapperClassName="wrapper" label="Label" help="h" />
     );
 
-    let node = React.findDOMNode(instance);
+    let node = ReactDOM.findDOMNode(instance);
     assert.include(node.className, 'form-group');
     assert.equal(node.children[0].tagName.toLowerCase(), 'label');
     assert.include(node.children[1].className, 'wrapper');
@@ -239,7 +240,7 @@ describe('Input', function () {
       <Input type="checkbox" wrapperClassName="wrapper" label="Label" help="h" />
     );
 
-    let node = React.findDOMNode(instance);
+    let node = ReactDOM.findDOMNode(instance);
     assert.include(node.className, 'form-group');
     assert.include(node.children[0].className, 'wrapper');
     assert.include(node.children[0].children[0].className, 'checkbox');
@@ -253,7 +254,7 @@ describe('Input', function () {
       <Input type="text" label="l" wrapperClassName="wrapper" addonAfter="a" hasFeedback={true} help="h"/>
     );
 
-    let node = React.findDOMNode(instance);
+    let node = ReactDOM.findDOMNode(instance);
     assert.include(node.className, 'form-group');
     assert.equal(node.children[0].tagName.toLowerCase(), 'label');
     assert.include(node.children[1].className, 'wrapper');

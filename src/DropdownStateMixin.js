@@ -1,4 +1,4 @@
-import React from 'react';
+import ReactDOM from 'react-dom';
 import domUtils from './utils/domUtils';
 import EventListener from './utils/EventListener';
 
@@ -49,7 +49,7 @@ const DropdownStateMixin = {
   handleDocumentClick(e) {
     // If the click originated from within this component
     // don't do anything.
-    if (isNodeInRoot(e.target, React.findDOMNode(this))) {
+    if (isNodeInRoot(e.target, ReactDOM.findDOMNode(this))) {
       return;
     }
 

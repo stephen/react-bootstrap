@@ -1,10 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import FormGroup from './FormGroup';
 
 class InputBase extends React.Component {
   getInputDOMNode() {
-    return React.findDOMNode(this.refs.input);
+    return ReactDOM.findDOMNode(this.refs.input);
   }
 
   getValue() {

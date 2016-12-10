@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import TransitionEvents from './utils/TransitionEvents';
 
@@ -43,7 +44,7 @@ const TabPane = React.createClass({
     }
     if (this.state.animateOut) {
       TransitionEvents.addEndEventListener(
-        React.findDOMNode(this),
+        ReactDOM.findDOMNode(this),
         this.stopAnimateOut
       );
     }

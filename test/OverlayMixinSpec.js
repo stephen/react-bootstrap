@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import OverlayMixin from '../src/OverlayMixin';
 
@@ -19,7 +20,7 @@ describe('OverlayMixin', function () {
 
   afterEach(function() {
     if (instance && ReactTestUtils.isCompositeComponent(instance) && instance.isMounted()) {
-      React.unmountComponentAtNode(instance.getDOMNode());
+      ReactDOM.unmountComponentAtNode(instance.getDOMNode());
     }
   });
 

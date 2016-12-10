@@ -1,4 +1,4 @@
-import React from 'react';
+import ReactDOM from 'react-dom';
 
 /**
  * Get elements owner document
@@ -7,7 +7,7 @@ import React from 'react';
  * @returns {HTMLElement}
  */
 function ownerDocument(componentOrElement) {
-  let elem = React.findDOMNode(componentOrElement);
+  let elem = ReactDOM.findDOMNode(componentOrElement);
   return (elem && elem.ownerDocument) || document;
 }
 

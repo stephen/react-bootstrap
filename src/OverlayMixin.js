@@ -1,4 +1,4 @@
-import React from 'react';
+import ReactDOM from 'react-dom';
 import CustomPropTypes from './utils/CustomPropTypes';
 import domUtils from './utils/domUtils';
 
@@ -39,7 +39,7 @@ export default {
 
     // Save reference to help testing
     if (overlay !== null) {
-      this._overlayInstance = React.render(overlay, this._overlayTarget);
+      this._overlayInstance = ReactDOM.render(overlay, this._overlayTarget);
     } else {
       // Unrender if the component is null for transitions to null
       this._unrenderOverlay();
@@ -47,7 +47,7 @@ export default {
   },
 
   _unrenderOverlay() {
-    React.unmountComponentAtNode(this._overlayTarget);
+    ReactDOM.unmountComponentAtNode(this._overlayTarget);
     this._overlayInstance = null;
   },
 
@@ -57,13 +57,13 @@ export default {
     }
 
     if (this._overlayInstance) {
-      return React.findDOMNode(this._overlayInstance);
+      return ReactDOM.findDOMNode(this._overlayInstance);
     }
 
     return null;
   },
 
   getContainerDOMNode() {
-    return React.findDOMNode(this.props.container) || domUtils.ownerDocument(this).body;
+    return ReactDOM.findDOMNode(this.props.container) || domUtils.ownerDocument(this).body;
   }
 };

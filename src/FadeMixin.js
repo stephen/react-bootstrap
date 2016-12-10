@@ -1,4 +1,4 @@
-import React from 'react';
+import ReactDOM from 'react-dom';
 import domUtils from './utils/domUtils';
 
 // TODO: listen for onTransitionEnd to remove el
@@ -21,7 +21,7 @@ export default {
     let els;
 
     if (this.isMounted()) {
-      els = getElementsAndSelf(React.findDOMNode(this), ['fade']);
+      els = getElementsAndSelf(ReactDOM.findDOMNode(this), ['fade']);
 
       if (els.length) {
         els.forEach(function (el) {
@@ -57,14 +57,14 @@ export default {
   },
 
   componentWillUnmount() {
-    let els = getElementsAndSelf(React.findDOMNode(this), ['fade']),
-        container = (this.props.container && React.findDOMNode(this.props.container)) ||
+    let els = getElementsAndSelf(ReactDOM.findDOMNode(this), ['fade']),
+        container = (this.props.container && ReactDOM.findDOMNode(this.props.container)) ||
           domUtils.ownerDocument(this).body;
 
     if (els.length) {
       this._fadeOutEl = document.createElement('div');
       container.appendChild(this._fadeOutEl);
-      this._fadeOutEl.appendChild(React.findDOMNode(this).cloneNode(true));
+      this._fadeOutEl.appendChild(ReactDOM.findDOMNode(this).cloneNode(true));
       // Firefox needs delay for transition to be triggered
       setTimeout(this._fadeOut, 20);
     }

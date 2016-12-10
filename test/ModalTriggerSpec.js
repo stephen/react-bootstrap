@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ModalTrigger from '../src/ModalTrigger';
 
@@ -9,7 +10,7 @@ describe('ModalTrigger', function() {
         <button>button</button>
       </ModalTrigger>
     );
-    const modalTrigger = React.findDOMNode(instance);
+    const modalTrigger = ReactDOM.findDOMNode(instance);
     assert.equal(modalTrigger.nodeName, 'BUTTON');
   });
 
@@ -20,7 +21,7 @@ describe('ModalTrigger', function() {
         <button>button</button>
       </ModalTrigger>
     );
-    const modalTrigger = React.findDOMNode(instance);
+    const modalTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.mouseOver(modalTrigger);
     callback.called.should.be.true;
   });
@@ -32,7 +33,7 @@ describe('ModalTrigger', function() {
         <button>button</button>
       </ModalTrigger>
     );
-    const modalTrigger = React.findDOMNode(instance);
+    const modalTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.mouseOut(modalTrigger);
     callback.called.should.be.true;
   });
@@ -44,7 +45,7 @@ describe('ModalTrigger', function() {
         <button>button</button>
       </ModalTrigger>
     );
-    const modalTrigger = React.findDOMNode(instance);
+    const modalTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.focus(modalTrigger);
     callback.called.should.be.true;
   });
@@ -56,7 +57,7 @@ describe('ModalTrigger', function() {
         <button>button</button>
       </ModalTrigger>
     );
-    const modalTrigger = React.findDOMNode(instance);
+    const modalTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.blur(modalTrigger);
     callback.called.should.be.true;
   });
@@ -96,7 +97,7 @@ describe('ModalTrigger', function() {
     ContextHolder.childContextTypes = contextTypes;
 
     const instance = ReactTestUtils.renderIntoDocument(<ContextHolder />);
-    const modalTrigger = React.findDOMNode(instance);
+    const modalTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.click(modalTrigger);
 
     contextSpy.calledWith('value').should.be.true;

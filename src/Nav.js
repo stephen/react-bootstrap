@@ -1,4 +1,5 @@
 import React, { cloneElement } from 'react';
+import ReactDOM from 'react-dom';
 import BootstrapMixin from './BootstrapMixin';
 import CollapsibleMixin from './CollapsibleMixin';
 import classNames from 'classnames';
@@ -34,11 +35,11 @@ const Nav = React.createClass({
   },
 
   getCollapsibleDOMNode() {
-    return React.findDOMNode(this);
+    return ReactDOM.findDOMNode(this);
   },
 
   getCollapsibleDimensionValue() {
-    let node = React.findDOMNode(this.refs.ul),
+    let node = ReactDOM.findDOMNode(this.refs.ul),
         height = node.offsetHeight,
         computedStyles = domUtils.getComputedStyles(node);
 

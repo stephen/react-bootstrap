@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import OverlayTrigger from '../src/OverlayTrigger';
 import Popover from '../src/Popover';
@@ -11,7 +12,7 @@ describe('OverlayTrigger', function() {
         <button>button</button>
       </OverlayTrigger>
     );
-    const overlayTrigger = React.findDOMNode(instance);
+    const overlayTrigger = ReactDOM.findDOMNode(instance);
     assert.equal(overlayTrigger.nodeName, 'BUTTON');
   });
 
@@ -22,7 +23,7 @@ describe('OverlayTrigger', function() {
         <button>button</button>
       </OverlayTrigger>
     );
-    const overlayTrigger = React.findDOMNode(instance);
+    const overlayTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.click(overlayTrigger);
     callback.called.should.be.true;
   });
@@ -33,7 +34,7 @@ describe('OverlayTrigger', function() {
         <button>button</button>
       </OverlayTrigger>
     );
-    const overlayTrigger = React.findDOMNode(instance);
+    const overlayTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.click(overlayTrigger);
 
     instance.state.isOverlayShown.should.be.true;
@@ -73,7 +74,7 @@ describe('OverlayTrigger', function() {
     ContextHolder.childContextTypes = contextTypes;
 
     const instance = ReactTestUtils.renderIntoDocument(<ContextHolder />);
-    const overlayTrigger = React.findDOMNode(instance);
+    const overlayTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.click(overlayTrigger);
 
     contextSpy.calledWith('value').should.be.true;
@@ -196,7 +197,7 @@ describe('OverlayTrigger', function() {
               <button>button</button>
             </OverlayTrigger>
           );
-          overlayTrigger = React.findDOMNode(instance);
+          overlayTrigger = ReactDOM.findDOMNode(instance);
         });
 
         it('Should handle trigger without warnings', function() {
@@ -231,7 +232,7 @@ describe('OverlayTrigger', function() {
               <button>button</button>
             </OverlayTrigger>
           );
-          const overlayTrigger = React.findDOMNode(instance);
+          const overlayTrigger = ReactDOM.findDOMNode(instance);
           ReactTestUtils.Simulate.click(overlayTrigger);
         });
 
